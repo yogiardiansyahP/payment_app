@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/sign-in': (context) => const SignInScreen(), // Route harus ada
+        '/sign-in': (context) => const SignInScreen(), 
+         '/home': (context) =>  TicketPurchasePage(),
       },
     );
   }
@@ -26,38 +27,41 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/sign-in'); // Panggil SignInScreen
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacementNamed(context, '/sign-in');
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      // body: Stack(
+      //   children: [
+      //     Align(
+      //       alignment: Alignment.center,
+      //       child: Image.asset(AssetsConst.logoBlue),
+      //     ),
+      //     Align(
+      //       alignment: Alignment.bottomCenter,
+      //       child: Image.asset(AssetsConst.fromLogo),
+      //     ),
+      //   ],
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-            'assets/logo.png', // Sesuai dengan path yang benar
-            width: 150,
-          ),
-            const SizedBox(height: 10),
-            const Text(
-              "Add Friends",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            )
+            Spacer(),
+            Image.asset( 'assets/logo_blue.png'),
+            Spacer(),
+            Image.asset( 'assets/from_logo.png'),
           ],
         ),
       ),
