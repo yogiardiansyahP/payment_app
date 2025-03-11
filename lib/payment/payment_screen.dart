@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_kelas/success/success_screen.dart';
 
 class PaymentPage extends StatelessWidget {
   const PaymentPage({super.key});
@@ -29,7 +30,7 @@ class PaymentPage extends StatelessWidget {
             const Spacer(),
             _buildPaymentOptions(),
             _buildOrderSummary(),
-            _buildProcessButton(),
+            _buildProcessButton(context),
           ],
         ),
       ),
@@ -108,7 +109,7 @@ class PaymentPage extends StatelessWidget {
     );
   }
 
-  Widget _buildProcessButton() {
+  Widget _buildProcessButton(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: 50,
@@ -117,7 +118,12 @@ class PaymentPage extends StatelessWidget {
           backgroundColor: Colors.blue,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SuccessScreen()),
+          );        
+          },
         child: const Text('Process', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
       ),
     );
