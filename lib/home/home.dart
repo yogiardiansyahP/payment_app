@@ -67,6 +67,7 @@ class _TicketPurchasePageState extends State<TicketPurchasePage> {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
+        automaticallyImplyLeading: false, // Menghilangkan tombol kembali
       ),
       body: Column(
         children: [
